@@ -36,7 +36,8 @@ const Layout = () => {
           padding: `5rem 1.0875rem 1rem`,
           maxWidth: 960,
           minHeight: `100vh`,
-          color: 'black'
+          color: 'black',
+          backgroundColor: '#FFD11022'
         }}
       >
         <main>

@@ -43,8 +43,6 @@ function Categories() {
 
   const { categories } = data;
 
-  console.log(categories);
-
   return <ImageList>
     {categories.map((category) => (
       <ImageListItem key={category.id} variant="masonry">

@@ -105,15 +105,15 @@ const Footer = () => {
           Need Help?
         </Typography>
         <Button variant="contained"
-          href="tel:1-604-565-4464"
+          href="tel:1-250-720-5195"
           target="_blank"
           style={helpButtonStyle}
           sx={{ mb: 1 }}
           onClick={() => {
             handleClose();
-          }}><CallIcon sx={{marginRight: '0.3em'}} />Call (604) 565-4464</Button>
+          }}><CallIcon sx={{marginRight: '0.3em'}} />Call (250) 720-5195</Button>
         <Button variant="contained"
-          href="mailto:office@houseofomeed.ca"
+          href="mailto:info@thegoodchoice.app"
           target="_blank"
           style={helpButtonStyle}
           onClick={() => {

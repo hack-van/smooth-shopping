@@ -18,8 +18,6 @@ export const ProductList = ({ setProduct, setOpen, data }) => {
     );
   }
 
-  console.log(products);
-
   // Default content
   return (
     <ImageList

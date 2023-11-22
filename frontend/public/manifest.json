@@ -1,9 +1,9 @@
 {
-  "short_name": "House of Omeed",
-  "name": "House of Omeed Food Bank",
+  "short_name": "Food Banks BC",
+  "name": "The Food Banks BC",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
