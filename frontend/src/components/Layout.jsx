@@ -37,7 +37,7 @@ const Layout = () => {
           maxWidth: 960,
           minHeight: `100vh`,
           color: 'black',
-          background: "linear-gradient(180deg, white 0%, rgba(255,209,16,0.5) 100%)"
+          background: "linear-gradient(180deg, transparent 0%, #749e2e88 100%)"
         }}
       >
         <main>

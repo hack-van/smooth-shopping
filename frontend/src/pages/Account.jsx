@@ -68,6 +68,7 @@ const Account = () => {
             <Typography component="span" variant="body2">
               <Button 
                 to="#"
+                color="success"
                 onClick={
                   (e) => {
                     e.preventDefault();
@@ -108,7 +109,7 @@ const Account = () => {
             <Button variant="outlined"
               component={Link}
               to="/logout"
-              color="primary"
+              color="error"
               endIcon={<LogoutIcon />}>Log out</Button>
           </Box>
         </Typography>

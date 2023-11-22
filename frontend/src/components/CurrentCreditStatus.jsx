@@ -51,7 +51,7 @@ const CurrentCredits = () => {
           alignItems: 'center'
         }}>
         {/* <ShoppingCartIcon fontSize="large" /> */}
-        <h3 style={{ margin: 0, color: currentCredits >= 0 ? '#75F348' : '#F34848', fontSize: '2rem' }}>
+        <h3 style={{ margin: 0, color: currentCredits >= 0 ? '#FFD110' : '#F34848', fontSize: '2rem' }}>
           { // TODO: Make formatting better?
             currentCredits >= 0 
               ? <>${currentCredits}</>

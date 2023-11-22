@@ -73,7 +73,7 @@ const LoginPage = () => {
       >
         <Logo />
         <h2 
-          style={{ marginTop: '3rem'}}>Access code</h2>
+          style={{ marginTop: '3rem'}}>Food Bank Login</h2>
         <Box
           component="form"
           noValidate>
@@ -83,6 +83,7 @@ const LoginPage = () => {
               id="login__username" 
               variant="filled"
               label="Username"
+              color="success"
               sx={{ background: '#fff', mb: '2rem' }}
               onInput={(e) => setUsername(e.target.value)} />
           </Box>
@@ -93,6 +94,7 @@ const LoginPage = () => {
               type="password"
               variant="filled" 
               label="Password"
+              color="success"
               sx={{ background: '#fff', mb: '2rem' }} 
               onInput={(e) => setPassword(e.target.value)}/>
           </Box>
