@@ -36,8 +36,7 @@ const Layout = () => {
           padding: `5rem 1.0875rem 1rem`,
           maxWidth: 960,
           minHeight: `100vh`,
-          color: 'white',
-          backgroundImage: 'linear-gradient(rgba(0, 147, 181, 0.79), #003B81)'
+          color: 'black'
         }}
       >
         <main>

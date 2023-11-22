@@ -7,6 +7,7 @@ import { isLoggedIn, loginAsync } from "../helpers/loginHelper";
 import { snackbarMsgVar, snackbarOpenVar, SnackbarType, snackbarTypeVar } from "../components/Snackbar";
 import { usePastOrderQuantitiesUpdater } from "../helpers/cartHelper";
 import { debuggingIsOn } from "../helpers/genericHelper";
+import Logo from "../components/Logo";
 
 const LoginPage = () => {
 
@@ -70,15 +71,7 @@ const LoginPage = () => {
           spacing: '3',
         }}
       >
-        <img
-          src={process.env.PUBLIC_URL + '/images/hoo_logo2x.jpg'}
-          // width={300}
-          quality={100}
-          formats={["auto", "webp", "avif"]}
-          alt="House of Omeed"
-          style={{ marginBottom: `1.45rem` }}
-          sx={{ mt: '3rem'}}
-        />
+        <Logo />
         <h2 
           style={{ marginTop: '3rem'}}>Access code</h2>
         <Box
