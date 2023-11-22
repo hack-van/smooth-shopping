@@ -21,7 +21,7 @@ const toolbarLinkStyle = { //TODO
 };
 
 const helpButtonStyle = {
-  backgroundColor: '#00497F',
+  backgroundColor: '#749e2e',
   color: 'white',
   borderRadius: '20px',
   fontWeight: 'bold',
