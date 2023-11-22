@@ -78,12 +78,11 @@ export const CartCheckoutButton = ({disabledData, orderData}) => {
       <LoadingButton
         loading={loading}
         component={Button} 
-        variant="contained" 
+        variant="contained"
+        color="primary"
         sx={{
           padding: '0.5rem 3rem',
           margin: '1rem 0',
-          color: '#000',
-          backgroundColor: '#75F348',
         }}
         disabled={isDisabled}
         startIcon={!isDisabled ? <CheckCircleIcon /> : <CancelIcon />}

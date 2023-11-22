@@ -52,10 +52,9 @@ const Footer = () => {
     <Typography
       component="div"
       variant="body2"
-      style={{
-        backgroundColor: '#749e2e',
-        padding: '1rem 2rem 0rem 2rem',
-      }}>
+      backgroundColor="primary.main"
+      px={1}
+      py={2}>
       <Box sx={{
           flexGrow: 1,
           justifyContent: 'center',

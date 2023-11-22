@@ -24,6 +24,18 @@ import SearchProducts from './pages/SearchPage';
 import PastOrders from './pages/PastOrders';
 import LogoutPage from './pages/Logout';
 import { isLoggedIn } from './helpers/loginHelper';
+import { ThemeProvider, createTheme } from '@mui/material';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#749E2E'
+    },
+    secondary: {
+      main: '#ffd110'
+    },
+  }
+})
 
 const App = () => {
   const [client, setClient] = React.useState();
@@ -67,31 +79,33 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
-      <ApolloProvider client={client}>
-        <Routes>
-          <Route path="/login" element={<Layout />}> {/* Wrapper element */}
-            <Route index element={<LoginPage />} />
-          </Route>
-          <Route path="/logout" element={<LogoutPage />}> {/* Wrapper element */}
-          </Route>
-          <Route path="/" element={<Layout />}> {/* Wrapper element */}
-            <Route element={<RequireAuth />}>  {/* Authentication guard */}
-              <Route index element={<HomePage />} />
-              <Route path="cart" element={<CartPage />} />
-              <Route path="account" element={<AccountPage />} />
-              <Route path="categories">
-                {/* Uses state to identify the category: must be accessed only from Homepage */}
-                <Route path=":categorySlug" element={<Category />} />
-              </Route>
-              <Route path="search" element={<SearchProducts />} />
-              <Route path="history" element={<PastOrders />} />
-              <Route path="*" element={<NotFoundPage />} />
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <ApolloProvider client={client}>
+          <Routes>
+            <Route path="/login" element={<Layout />}> {/* Wrapper element */}
+              <Route index element={<LoginPage />} />
             </Route>
-          </Route>
-        </Routes>
-      </ApolloProvider>
-    </BrowserRouter>
+            <Route path="/logout" element={<LogoutPage />}> {/* Wrapper element */}
+            </Route>
+            <Route path="/" element={<Layout />}> {/* Wrapper element */}
+              <Route element={<RequireAuth />}>  {/* Authentication guard */}
+                <Route index element={<HomePage />} />
+                <Route path="cart" element={<CartPage />} />
+                <Route path="account" element={<AccountPage />} />
+                <Route path="categories">
+                  {/* Uses state to identify the category: must be accessed only from Homepage */}
+                  <Route path=":categorySlug" element={<Category />} />
+                </Route>
+                <Route path="search" element={<SearchProducts />} />
+                <Route path="history" element={<PastOrders />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
+            </Route>
+          </Routes>
+        </ApolloProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

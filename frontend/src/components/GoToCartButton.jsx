@@ -39,11 +39,9 @@ const GoToCartButton = () => {
       margin: '0 auto',
       bottom: '5rem',
     }}>
-      <Fab color="primary"
+      <Fab color={isOrderingSystemIsOpenToday() ? "primary" : undefined}
           aria-label="Checkout your items"
           sx={{
-            color: '#000',
-            backgroundColor: isOrderingSystemIsOpenToday() ? '#75F348' : '#ccc',
             position: 'absolute',
             bottom: '1.5em',
             right: '1em',
@@ -56,7 +54,7 @@ const GoToCartButton = () => {
           onClick={() => {
             navigate('/cart');
           }}>
-          <StyledBadge badgeContent={cartItemsCount} color="primary" sx={{ mr: 1 }}>
+          <StyledBadge badgeContent={cartItemsCount} sx={{ mr: 1 }}>
             <ShoppingCartOutlinedIcon  className="checkout__icon" sx={{ verticalAlign: 'top'}} />
           </StyledBadge>
           Checkout

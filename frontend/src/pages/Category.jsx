@@ -40,7 +40,7 @@ const CategoryProducts = () => {
         <h1>{ title }</h1>
         <div>
           <IconButton
-            color="success"
+            color="primary"
             aria-label={'Refresh page'}
             onClick={() => {
               refetch();

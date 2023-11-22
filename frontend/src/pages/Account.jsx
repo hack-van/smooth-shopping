@@ -68,7 +68,7 @@ const Account = () => {
             <Typography component="span" variant="body2">
               <Button 
                 to="#"
-                color="success"
+                color="primary"
                 onClick={
                   (e) => {
                     e.preventDefault();

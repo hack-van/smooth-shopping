@@ -52,7 +52,7 @@ const CustomSearchIcon = () => {
               id="search__keys" 
               type="text"
               variant="filled" 
-              color="success"
+              color="primary"
               label="Search..."
               inputRef={input => input && input.focus()}
               sx={{ background: '#fff', mb: '2rem', width: '100%' }} 

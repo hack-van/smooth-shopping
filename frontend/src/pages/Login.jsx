@@ -83,7 +83,7 @@ const LoginPage = () => {
               id="login__username" 
               variant="filled"
               label="Username"
-              color="success"
+              color="primary"
               sx={{ background: '#fff', mb: '2rem' }}
               onInput={(e) => setUsername(e.target.value)} />
           </Box>
@@ -94,7 +94,7 @@ const LoginPage = () => {
               type="password"
               variant="filled" 
               label="Password"
-              color="success"
+              color="primary"
               sx={{ background: '#fff', mb: '2rem' }} 
               onInput={(e) => setPassword(e.target.value)}/>
           </Box>
@@ -103,7 +103,7 @@ const LoginPage = () => {
             <LoadingButton
               type="submit"
               variant="contained"
-              color="success"
+              color="primary"
               loading={isLoading}
               component={Button}
               sx={{

@@ -75,7 +75,7 @@ export const ProductDialog = ({reactOpen, selectedProduct}) => {
               <div style={{marginRight: 'auto'}}></div>
               <Button 
                 variant="contained"
-                color="success"
+                color="primary"
                 sx={{
                   borderRadius: '20px',
                   fontWeight: 'bold',

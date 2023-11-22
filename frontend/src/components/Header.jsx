@@ -9,9 +9,10 @@ import SystemMessageOrderIds from "./SystemMessageOrderIds";
 import { zonedTimeToUtc } from "date-fns-tz";
 import { getUnixTime, subDays } from "date-fns";
 import { isPickUpOrdersToday } from "../helpers/orderSystemStatus";
+import { useTheme } from "@mui/material";
 
-const Header = () => {  
-  
+const Header = () => {
+  const theme = useTheme();
   const pathname = useLocation().pathname;
   const pathnameTrimmed = pathname.replace(/\/$/, '');
   const isHome = pathnameTrimmed === '';
@@ -28,7 +29,7 @@ const Header = () => {
     <>
       <header
         style={{
-          backgroundColor: '#749e2e',
+          backgroundColor: theme.palette.primary.main,
           color: 'white',
         }}
         >
