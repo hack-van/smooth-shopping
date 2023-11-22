@@ -53,7 +53,7 @@ const Footer = () => {
       component="div"
       variant="body2"
       style={{
-        backgroundColor: '#00497F',
+        backgroundColor: '#749e2e',
         padding: '1rem 2rem 0rem 2rem',
       }}>
       <Box sx={{
