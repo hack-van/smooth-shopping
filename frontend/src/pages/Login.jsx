@@ -102,13 +102,11 @@ const LoginPage = () => {
             component="div">
             <LoadingButton
               type="submit"
-              variant="contained" 
+              variant="contained"
+              color="success"
               loading={isLoading}
               component={Button}
-              className="login__loading-button"
               sx={{
-                backgroundColor: '#75F348',
-                color: 'black',
                 borderRadius: '20px',
                 fontWeight: 'bold',
                 padding: '0.3rem 10%'

@@ -73,10 +73,10 @@ export const ProductDialog = ({reactOpen, selectedProduct}) => {
                 enableMinQuantityCheck={true}
                 showZeroIfMaxQuantityIsZero={true} />
               <div style={{marginRight: 'auto'}}></div>
-              <Button variant="contained"
+              <Button 
+                variant="contained"
+                color="success"
                 sx={{
-                  backgroundColor: '#75F348',
-                  color: 'black',
                   borderRadius: '20px',
                   fontWeight: 'bold',
                   padding: '0 10%'
