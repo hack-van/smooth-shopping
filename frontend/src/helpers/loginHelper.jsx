@@ -90,15 +90,12 @@ export const checkUserUuidAsync = async () => {
 const authenicationAsync = async (username, password) => {
   const usernameConcatPassword = `${username}:${password}`;
 
-  const loginStrBase64 = Buffer.from(usernameConcatPassword, 'binary');
-  const loginStr = loginStrBase64.toString('base64');
-
   // ENSURE this is https:// for security
   return fetch(`${import.meta.env.VITE_APP_ROOT_DOMAIN}/jwt/token?_format=json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Basic ${loginStr}`
+      'Authorization': `Basic ${btoa(usernameConcatPassword)}`
     },
   }).then(response => response.json());
 }
