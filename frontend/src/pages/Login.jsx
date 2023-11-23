@@ -10,8 +10,13 @@ import { debuggingIsOn } from "../helpers/genericHelper";
 import Logo from "../components/Logo";
 
 const LoginPage = () => {
-
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (isLoggedIn()) {
+      navigate('/');
+    }
+  }, []);
 
   // Form elements
   const [username, setUsername] = React.useState('');
@@ -22,7 +27,7 @@ const LoginPage = () => {
 
   // Load the previous quantity updator
   const previousOrderQuanitiesUpdater = usePastOrderQuantitiesUpdater();
-  
+
   const submitLoginForm = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -36,27 +41,17 @@ const LoginPage = () => {
       if (debuggingIsOn()) {
         console.log("Login");
       }
-      await loginAsync(username, password)
-        .then((loggedInSuccessfully) => {
-          if (loggedInSuccessfully) {
-
-            // Must use .then() to avoid navigating while updating the store items
-            return previousOrderQuanitiesUpdater()
-              .then(() => navigate('/'));
-          }
-          else {
-            snackbarOpenVar(true);
-            snackbarTypeVar(SnackbarType.warning);
-            snackbarMsgVar("Your username or password is incorrect.");
-            setIsLoading(false);
-          }
-        });
+      const success = await loginAsync(username, password)
+      if (success) {
+        await previousOrderQuanitiesUpdater();
+        return navigate('/');
+      } else {
+        snackbarOpenVar(true);
+        snackbarTypeVar(SnackbarType.warning);
+        snackbarMsgVar("Your username or password is incorrect.");
+        setIsLoading(false);
+      }
     }
-    
-  }
-
-  if (isLoggedIn()) {
-    navigate('/');
   }
 
   return (

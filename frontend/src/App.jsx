@@ -1,41 +1,39 @@
-import React from 'react';
+import React from "react";
 
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import LoginPage from './pages/Login';
-import CartPage from './pages/Cart';
-import AccountPage from './pages/Account';
-import NotFoundPage from './pages/404';
-import Layout from './components/Layout';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/Login";
+import CartPage from "./pages/Cart";
+import AccountPage from "./pages/Account";
+import NotFoundPage from "./pages/404";
+import Layout from "./components/Layout";
 
+import { ApolloProvider } from "@apollo/client"; // See: https://www.apollographql.com/docs/react/get-started/
+import { apolloClient, apolloCachePersistor } from "./helpers/cache";
+import Category from "./pages/Category";
+import RequireAuth from "./components/RequireAuth";
+import HomePage from "./pages/Home";
+import "./App.css";
 import {
-  ApolloProvider,
-} from "@apollo/client"; // See: https://www.apollographql.com/docs/react/get-started/
-import { apolloClient, apolloCachePersistor } from './helpers/cache';
-import Category from './pages/Category';
-import RequireAuth from './components/RequireAuth';
-import HomePage from './pages/Home';
-import './App.css';
-import { restoreCartItems, storeCartItems, usePastOrderQuantitiesUpdater } from './helpers/cartHelper';
-import SearchProducts from './pages/SearchPage';
-import PastOrders from './pages/PastOrders';
-import LogoutPage from './pages/Logout';
-import { isLoggedIn } from './helpers/loginHelper';
-import { ThemeProvider, createTheme } from '@mui/material';
+  restoreCartItems,
+  storeCartItems,
+  usePastOrderQuantitiesUpdater,
+} from "./helpers/cartHelper";
+import SearchProducts from "./pages/SearchPage";
+import PastOrders from "./pages/PastOrders";
+import LogoutPage from "./pages/Logout";
+import { isLoggedIn } from "./helpers/loginHelper";
+import { ThemeProvider, createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#749E2E'
+      main: "#749E2E",
     },
     secondary: {
-      main: '#ffd110'
+      main: "#ffd110",
     },
-  }
-})
+  },
+});
 
 const App = () => {
   const [client, setClient] = React.useState();
@@ -47,49 +45,53 @@ const App = () => {
       // Restore the cartItems if not present
       restoreCartItems();
 
-      // Restore persistor 
+      // Restore persistor
       await apolloCachePersistor.restore();
 
       // Set the client to manage the queries
       setClient(apolloClient);
 
-      // Run the product quantities from past orders to 
+      // Run the product quantities from past orders to
       // enforce limits per user/month
-      if (isLoggedIn() ) {
+      if (isLoggedIn()) {
         updatePastQuantities();
       }
 
-      window.addEventListener('beforeunload', storeCartItems);
-
+      window.addEventListener("beforeunload", storeCartItems);
     }
 
     init().catch(console.error);
 
     // Store cart items before unloading
     return () => {
-      window.removeEventListener('beforeunload', storeCartItems);
+      window.removeEventListener("beforeunload", storeCartItems);
     };
-
   }, [updatePastQuantities]);
 
   if (!client) {
-    return (
-        <p style={{textAlign: 'center'}}>Loading...</p>
-    );
+    return <p style={{ textAlign: "center" }}>Loading...</p>;
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <ApolloProvider client={client}>
+    <BrowserRouter>
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
           <Routes>
-            <Route path="/login" element={<Layout />}> {/* Wrapper element */}
+            <Route path="/login" element={<Layout />}>
+              {" "}
+              {/* Wrapper element */}
               <Route index element={<LoginPage />} />
             </Route>
-            <Route path="/logout" element={<LogoutPage />}> {/* Wrapper element */}
+            <Route path="/logout" element={<LogoutPage />}>
+              {" "}
+              {/* Wrapper element */}
             </Route>
-            <Route path="/" element={<Layout />}> {/* Wrapper element */}
-              <Route element={<RequireAuth />}>  {/* Authentication guard */}
+            <Route path="/" element={<Layout />}>
+              {" "}
+              {/* Wrapper element */}
+              <Route element={<RequireAuth />}>
+                {" "}
+                {/* Authentication guard */}
                 <Route index element={<HomePage />} />
                 <Route path="cart" element={<CartPage />} />
                 <Route path="account" element={<AccountPage />} />
@@ -103,10 +105,10 @@ const App = () => {
               </Route>
             </Route>
           </Routes>
-        </ApolloProvider>
-      </BrowserRouter>
-    </ThemeProvider>
+        </ThemeProvider>
+      </ApolloProvider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
