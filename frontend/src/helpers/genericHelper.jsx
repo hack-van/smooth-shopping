@@ -42,7 +42,7 @@ export const addToOrCreateMapEntry = (map, key, valueToAdd) => {
  * If debug is on
  */
 export const debuggingIsOn = () => {
-  return process.env.NODE_ENV === 'development';
+  return import.meta.env.NODE_ENV === 'development';
 }
 
 /**

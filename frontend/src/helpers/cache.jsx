@@ -63,7 +63,7 @@ const cache = new InMemoryCache({
 const httpLink = createHttpLink({});
 
 const restLink = new RestLink({
-  uri: process.env.REACT_APP_REST_URL_WITH_END_SLASH,
+  uri: import.meta.env.VITE_APP_REST_URL_WITH_END_SLASH,
   fieldNameNormalizer: camelize,
   headers: {
     'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const restLink = new RestLink({
 });
 
 const jsonApiLink = new JsonApiLink({
-  uri: process.env.REACT_APP_JSON_URL_WITH_END_SLASH,
+  uri: import.meta.env.VITE_APP_JSON_URL_WITH_END_SLASH,
   fieldNameNormalizer: camelize,
   typeNameNormalizer: pascalize,
 });

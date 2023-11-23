@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Outlet } from "react-router"
+import { Outlet } from "react-router-dom"
 import { isLoggedIn } from "../helpers/loginHelper"
 
 import CustomizedSnackbar from "./Snackbar"
